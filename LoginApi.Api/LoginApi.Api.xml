@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LoginApi.Api</name>
+    </assembly>
+    <members>
+        <member name="M:LoginApi.Api.Controllers.LoginController.GetLogin(LoginApi.Core.Domain.Requests.LoginRequest)">
+            <summary alignment="right">
+            Endpoint para realização do login
+            </summary>
+            <remarks>
+            Este endpoint tem como objetivo retornar se as credenciais informada estão corretas e consequentemente autenticar o usuário para utilização da plataforma de e-Commerce.
+            </remarks>
+            <returns>Códigos de retorno para o endpoint Login</returns>
+            <response code="200">Código de retorno caso o endpoint autentique as credenciais de acesso.</response>
+            <response code="400">Código de retorno caso ocorra um erro autenticar as credenciais informadas ou caso a requisição esteja divergente da especificação.</response>
+        </member>
+        <member name="M:LoginApi.Api.Controllers.UsuarioController.GetConsultarUsuario(System.Int32)">
+            <summary alignment="right">
+            Endpoint para consulta de um usuário
+            </summary>
+            <remarks>
+            Este endpoint tem como objetivo retornar as informações de um usuário cadastrado, através do seu ID.
+            </remarks>
+            <returns>Códigos de retorno para o endpoint ConsultarUsuario</returns>
+            <response code="200">Código de retorno caso o endpoint retorne as informações do usuário.</response>
+            <response code="400">Código de retorno caso ocorra um erro ao obter o usuário informado ou caso o id informado seja inválido.</response>
+        </member>
+        <member name="M:LoginApi.Api.Controllers.UsuarioController.PostIncluirUsuario(LoginApi.Core.Domain.Models.Usuario)">
+            <summary alignment="right">
+            Endpoint para inclusão de um usuário
+            </summary>
+            <remarks>
+            Este endpoint tem como incluir um usuário no cadastro de usuários.
+            </remarks>
+            <returns>Códigos de retorno para o endpoint IncluirUsuario</returns>
+            <response code="200">Código de retorno caso o endpoint inclua o usuário corretamente.</response>
+            <response code="400">Código de retorno caso ocorra um erro ao incluir a usuário informado ou caso o conteúdo da requisição esteja divergente da especificação.</response>
+        </member>
+        <member name="M:LoginApi.Api.Controllers.UsuarioController.PutAtualizarUsuario(System.Int32,LoginApi.Core.Domain.Models.Usuario)">
+            <summary alignment="right">
+            Endpoint para atualização de um usuário
+            </summary>
+            <remarks>
+            Este endpoint tem como atualizar as informações de um usuário no seu respectivo cadastro.
+            </remarks>
+            <returns>Códigos de retorno para o endpoint AtualizarrUsuario</returns>
+            <response code="200">Código de retorno caso o endpoint atualize as informações do usuário corretamente.</response>
+            <response code="400">Código de retorno caso ocorra um erro ao atualizar as informações do usuário informado ou caso o conteúdo da requisição esteja divergente da especificação.</response>
+        </member>
+        <member name="M:LoginApi.Api.Controllers.UsuarioController.DeleteExcluirUsuario(System.Int32)">
+            <summary alignment="right">
+            Endpoint para exclusão de um usuário
+            </summary>
+            <remarks>
+            Este endpoint tem como excluir um usuário do cadastro de usuários.
+            </remarks>
+            <returns>Códigos de retorno para o endpoint ExcluirUsuario</returns>
+            <response code="200">Código de retorno caso o endpoint exclua o usuário corretamente.</response>
+            <response code="400">Código de retorno caso ocorra um erro ao excluir o usuário informado ou caso o conteúdo da requisição esteja divergente da especificação.</response>
+        </member>
+    </members>
+</doc>
