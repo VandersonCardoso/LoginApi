@@ -37,6 +37,14 @@ namespace LoginApi.Api
         #region ConfigureServices
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("EnableCORS", builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().Build();
+                });
+            });
+
             services.AddControllers()
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<UsuarioSelfValidation>())
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestSelfValidation>());
@@ -72,6 +80,8 @@ namespace LoginApi.Api
             }
 
             ConfigureSwagger(app);
+
+            app.UseCors("EnableCORS");
 
             app.UseHttpsRedirection();
 

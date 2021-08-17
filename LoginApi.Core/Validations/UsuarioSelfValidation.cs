@@ -11,7 +11,7 @@ namespace LoginApi.Core.Validations
                 .Length(2, 60).WithMessage("O atributo [Nome] deve ter entre 2 e 60 caracteres.");
 
             RuleFor(r => r.Email)
-                .Empty()
+                .NotEmpty()
                 .EmailAddress().WithMessage("O e-mail informado não é válido.");
 
             RuleFor(r => r.Senha)
