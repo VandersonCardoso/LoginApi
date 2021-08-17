@@ -22,36 +22,36 @@ namespace LoginApi.Tests
         }
         #endregion
 
-        #region GetLogin_ModelStateInvalid
+        #region PostLogin_ModelStateInvalid
         [Test]
-        public async Task GetLogin_ModelStateInvalid()
+        public async Task PostLogin_ModelStateInvalid()
         {
             LoginController loginController = new LoginController(mockLoginService.Object);
             loginController.ModelState.AddModelError("Key", "errorMessage");
-            var result = await loginController.GetLogin(new LoginRequest());
+            var result = await loginController.PostLogin(new LoginRequest());
             Assert.IsFalse(loginController.ModelState.IsValid);
             Assert.IsInstanceOf<BadRequestObjectResult>(result);
         }
         #endregion
 
-        #region GetLogin_BadRequest
+        #region PostLogin_BadRequest
         [Test]
-        public async Task GetLogin_BadRequest()
+        public async Task PostLogin_BadRequest()
         {
             mockLoginService.Setup(l => l.Login(It.IsAny<LoginRequest>())).ReturnsAsync(new LoginResponse { Mensagem = "Credenciais inválidas.", UsuarioAutenticado = false });
             LoginController loginController = new LoginController(mockLoginService.Object);
-            var result = await loginController.GetLogin(new LoginRequest());
+            var result = await loginController.PostLogin(new LoginRequest());
             Assert.IsInstanceOf<BadRequestObjectResult>(result);
         }
         #endregion
 
-        #region GetLogin_Ok
+        #region PostLogin_Ok
         [Test]
-        public async Task GetLogin_Ok()
+        public async Task PostLogin_Ok()
         {
             mockLoginService.Setup(l => l.Login(It.IsAny<LoginRequest>())).ReturnsAsync(new LoginResponse { Mensagem = "Usuário autenticado.", UsuarioAutenticado = true });
             LoginController loginController = new LoginController(mockLoginService.Object);
-            var result = await loginController.GetLogin(new LoginRequest());
+            var result = await loginController.PostLogin(new LoginRequest());
             Assert.IsInstanceOf<OkObjectResult>(result);
         }
         #endregion

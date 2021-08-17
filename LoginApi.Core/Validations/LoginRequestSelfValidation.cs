@@ -8,11 +8,11 @@ namespace LoginApi.Core.Validations
         public LoginRequestSelfValidation()
         {
             RuleFor(r => r.Email)
-                .Empty()
+                .NotEmpty()
                 .EmailAddress().WithMessage("O e-mail informado é inválido.");
 
             RuleFor(r => r.Senha)
-                .Empty()
+                .NotEmpty()
                 .Length(6, 18).WithMessage("A senha informada é inválida.");
         }
     }

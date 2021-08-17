@@ -4,7 +4,7 @@
         <name>LoginApi.Api</name>
     </assembly>
     <members>
-        <member name="M:LoginApi.Api.Controllers.LoginController.GetLogin(LoginApi.Core.Domain.Requests.LoginRequest)">
+        <member name="M:LoginApi.Api.Controllers.LoginController.PostLogin(LoginApi.Core.Domain.Requests.LoginRequest)">
             <summary alignment="right">
             Endpoint para realização do login
             </summary>

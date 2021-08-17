@@ -20,7 +20,7 @@ namespace LoginApi.Api.Controllers
         }
         #endregion
 
-        #region GetLogin
+        #region PosttLogin
         /// <summary alignment="right">
         /// Endpoint para realização do login
         /// </summary>
@@ -30,10 +30,10 @@ namespace LoginApi.Api.Controllers
         /// <returns>Códigos de retorno para o endpoint Login</returns>
         /// <response code="200">Código de retorno caso o endpoint autentique as credenciais de acesso.</response>
         /// <response code="400">Código de retorno caso ocorra um erro autenticar as credenciais informadas ou caso a requisição esteja divergente da especificação.</response>
-        [HttpGet("/Login")]
+        [HttpPost("/Login")]
         [ProducesResponseType(typeof(LoginResponse), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(LoginResponse), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> GetLogin(LoginRequest request)
+        public async Task<IActionResult> PostLogin([FromBody]LoginRequest request)
         {
             if (!ModelState.IsValid)
             {
